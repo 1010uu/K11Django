@@ -23,8 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!t6)=i06vjkoys71n0ns(h8&x0a18=!5+3@-(kj9492=f=3j+n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+'''
+디버그 모드에 대한 설정으로 True이면 테스트모드(개발용)
+false이면 배포용(운영모드)
+'''
 DEBUG = True
-
+#아이피를 설정. 개발용인 경우 아래와 같이 로컬호스트로 설정하면 됨
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
@@ -36,6 +40,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 앱1 : 설문 관리 앱
 앱2 : 템플릿 문법 앱
+앱3 : 도서관리 앱
 '''
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'livepolls.apps.LivepollsConfig',
     'tempapps.apps.TempappsConfig',
+    'books.apps.BooksConfig'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +87,7 @@ WSGI_APPLICATION = 'DjangoApps.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+#DB는 기본적으로 설정된 sqllite3를 사용하므로 변경하지 않는다.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -113,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
+#타임존 설정. 한국으로 변경
 TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True

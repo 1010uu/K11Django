@@ -64,7 +64,7 @@ def vote(request, question_id):
                 이 경우에는 별칭을 통해 거꾸로 URL을 만들기 때문에 reverse라는 이름이 붙었다.
         '''
 
-#투표 결과 보기ㅂ    
+#투표 결과 보기  
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'livepolls/results.html', {'question':question})

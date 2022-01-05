@@ -74,11 +74,12 @@ def thanks(request):
 
 def boardWrite(request):
     if request.method=='POST':
-        form=WriteForm(request.POST)
-        
-        if form.is_valid():
-            user_id=form.cleaned_data['user_id']
-        return render(request, 'boardWirte.html', {'user_id':user_id})
+        template_path = 'boardWrite.html'
     else:
-        form=WriteForm()    
-    return render(request, 'boardWirte.html', {'form':form})
+        form = WriteForm()
+        template_path = 'boardWrite.html'
+        
+    #입력 폼 진입을 위해 템플릿을 렌더링한다.
+    return render(request, template_path, {'form':form})
+        
+    
